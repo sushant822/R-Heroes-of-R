@@ -1,0 +1,48 @@
+---
+title: "Heroes of R"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+```{r}
+library(tidyverse)
+purchase_data <- read_csv("Resources/purchase_data.csv")
+head(purchase_data)
+```
+```{r}
+total_players_unique <- unique(purchase_data$"SN")
+length(total_players_unique)
+```
+```{r}
+unique_items_count  <- length(unique(purchase_data$"Item Name"))
+unique_items_count
+```
+```{r}
+average_price  <- mean(purchase_data$"Price")
+average_price
+```
+```{r}
+total_purchase <- length(purchase_data$"Item ID")
+total_purchase
+```
+```{r}
+total_revenue <- sum(purchase_data$"Price")
+total_revenue
+```
+```{r}
+purchase_analysis_df <- data.frame(
+  "Number of Unique Items" = c(unique_items_count),
+  "Average Price" = c(average_price),
+  "Number of Purchases" = c(total_purchase),
+  "Total Revenue" = c(total_revenue)
+)
+purchase_analysis_df
+```
+```{r}
+
+```
+
